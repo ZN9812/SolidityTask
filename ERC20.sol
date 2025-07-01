@@ -1,4 +1,4 @@
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.9;
 
 // totalSupply는 토큰의 발행 총량을 알 수 있는 인터페이스입니다.
 // balanceOf는 요청한 계정의 잔액이 얼마인지를 알기 위해 사용됩니다.
