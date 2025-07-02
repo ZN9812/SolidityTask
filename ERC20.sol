@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
 // totalSupply는 토큰의 발행 총량을 알 수 있는 인터페이스입니다.
@@ -85,4 +86,18 @@ contract ERC20 {
     function allowance(address _owner, address _spender) public view returns (uint256 remaining) {
         return allowances[_owner][_spender];
     }
+
+    // ethToToken()
+    // 얼마를 받아서 (payable, msg.value), 누구에게 WETH를 민팅?
+    function deposit() public payable returns (bool success) {
+        address owner = msg.sender;
+        uint amount = msg.value;
+
+        balances[owner] += amount;
+        _totalSupply += amount;
+        emit Transfer(address(0), owner, amount);
+
+        return true;
+    }
+    
 }
